@@ -32,12 +32,14 @@ jobs:
         run: dotnet pack MFT.BuildingBlocks.slnx --configuration Release --no-build --output ./nupkgs
 
       - name: NuGet login (Trusted Publishing / OIDC)
+        id: login
         uses: NuGet/login@v1
         with:
-          user: m.farokhtabar
+          user: m-farokhtabar
 
       - name: Push to NuGet.org
         run: |
           dotnet nuget push ./nupkgs/*.nupkg \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
