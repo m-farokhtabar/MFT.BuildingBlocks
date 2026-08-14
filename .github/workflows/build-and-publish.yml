@@ -23,13 +23,13 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: Restore
-        run: dotnet restore MFT.BuildingBlocks.sln
+        run: dotnet restore MFT.BuildingBlocks.slnx
 
       - name: Build
-        run: dotnet build MFT.BuildingBlocks.sln --configuration Release --no-restore
+        run: dotnet build MFT.BuildingBlocks.slnx --configuration Release --no-restore
 
       - name: Pack all projects
-        run: dotnet pack MFT.BuildingBlocks.sln --configuration Release --no-build --output ./nupkgs
+        run: dotnet pack MFT.BuildingBlocks.slnx --configuration Release --no-build --output ./nupkgs
 
       - name: NuGet login (Trusted Publishing / OIDC)
         uses: NuGet/login@v1
