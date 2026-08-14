@@ -1,4 +1,6 @@
-﻿namespace MFT.BuildingBlocks.Domain.Repositories;
+﻿using MFT.BuildingBlocks.Domain.Entities;
+
+namespace MFT.BuildingBlocks.Domain.Repositories;
 
 public interface IRepository<TEntity, TId> where TEntity : AggregateRoot<TId> where TId : notnull
 {
