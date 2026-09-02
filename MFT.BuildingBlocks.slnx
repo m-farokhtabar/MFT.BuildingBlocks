@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="MFT.BuildingBlocks.Application/MFT.BuildingBlocks.Application.csproj" Id="231f0c35-7672-4405-81b1-fd898f13829b" />
   <Project Path="MFT.BuildingBlocks.Domain/MFT.BuildingBlocks.Domain.csproj" />
 </Solution>

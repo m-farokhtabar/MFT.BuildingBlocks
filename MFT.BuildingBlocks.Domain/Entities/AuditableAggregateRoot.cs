@@ -1,6 +1,8 @@
-﻿namespace MFT.BuildingBlocks.Domain.Entities;
+﻿using MFT.BuildingBlocks.Domain.ValueObjects;
 
-public abstract class AuditableAggregateRoot<TId, TUserId> : AggregateRoot<TId> where TId : notnull where TUserId : notnull
+namespace MFT.BuildingBlocks.Domain.Entities;
+
+public abstract class AuditableAggregateRoot<TId, TUserId> : AggregateRoot<TId> where TId : EntityId where TUserId : EntityId
 {
     protected AuditableAggregateRoot() { }
     protected AuditableAggregateRoot(TId id) : base(id) { }

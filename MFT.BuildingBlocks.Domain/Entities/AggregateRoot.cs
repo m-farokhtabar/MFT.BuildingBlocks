@@ -1,8 +1,9 @@
 ﻿using MFT.BuildingBlocks.Domain.Events;
+using MFT.BuildingBlocks.Domain.ValueObjects;
 
 namespace MFT.BuildingBlocks.Domain.Entities;
 
-public abstract class AggregateRoot<TId> : Entity<TId> where TId : notnull
+public abstract class AggregateRoot<TId> : Entity<TId> where TId : EntityId
 {
     protected AggregateRoot() { }
     protected AggregateRoot(TId id) : base(id) { }

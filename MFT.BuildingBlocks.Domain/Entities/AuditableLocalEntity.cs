@@ -1,8 +1,9 @@
 ﻿using MFT.BuildingBlocks.Domain.Auditing;
+using MFT.BuildingBlocks.Domain.ValueObjects;
 
 namespace MFT.BuildingBlocks.Domain.Entities;
 
-public abstract class AuditableLocalEntity<TId, TOwnerId, TUserId> : LocalEntity<TId, TOwnerId>, IAuditableEntity<TUserId>  where TId: notnull where TOwnerId : notnull where TUserId : notnull
+public abstract class AuditableLocalEntity<TId, TOwnerId, TUserId> : LocalEntity<TId, TOwnerId>, IAuditableEntity<TUserId>  where TId: EntityId where TOwnerId : EntityId where TUserId : EntityId
 {
     protected AuditableLocalEntity() { }
 

@@ -6,10 +6,10 @@
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/m-farokhtabar/MFT.BuildingBlocks</RepositoryUrl>
-		<PackageId>MFT.BuildingBlocks.Domain</PackageId>
+		<PackageId>MFT.BuildingBlocks.Application</PackageId>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Description>Reusable Clean Architecture / DDD building blocks for .NET, including Domain layer.</Description>
+		<Description>Reusable Clean Architecture / DDD building blocks for .NET, including Application layer.</Description>
 	</PropertyGroup>
 
 </Project>

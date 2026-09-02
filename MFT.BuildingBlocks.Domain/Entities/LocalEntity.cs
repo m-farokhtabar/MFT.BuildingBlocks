@@ -1,6 +1,8 @@
-﻿namespace MFT.BuildingBlocks.Domain.Entities;
+﻿using MFT.BuildingBlocks.Domain.ValueObjects;
 
-public abstract class LocalEntity<TId, TOwnerId> : Entity<TId> where TId: notnull where TOwnerId : notnull
+namespace MFT.BuildingBlocks.Domain.Entities;
+
+public abstract class LocalEntity<TId, TOwnerId> : Entity<TId> where TId: EntityId where TOwnerId : EntityId
 {
     protected LocalEntity() { }
 

@@ -1,6 +1,8 @@
-﻿namespace MFT.BuildingBlocks.Domain.Specifications;
+﻿using MFT.BuildingBlocks.Domain.Primitives;
 
-public interface ISpecification<T>
+namespace MFT.BuildingBlocks.Domain.Specifications;
+
+public interface ISpecification<T> where T : IDomainObject
 {
     bool IsSatisfiedBy(T candidate);
 }

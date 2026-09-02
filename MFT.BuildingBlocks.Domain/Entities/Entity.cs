@@ -1,13 +1,15 @@
-﻿namespace MFT.BuildingBlocks.Domain.Entities;
+﻿using MFT.BuildingBlocks.Domain.Primitives;
+using MFT.BuildingBlocks.Domain.ValueObjects;
 
-public abstract class Entity<TId> : IEquatable<Entity<TId>> where TId : notnull
+namespace MFT.BuildingBlocks.Domain.Entities;
+
+public abstract class Entity<TId> : IDomainObject, IEquatable<Entity<TId>> where TId : EntityId
 {
     protected Entity() { }
 
     protected Entity(TId id) => Id = id;
 
     public TId Id { get; init; } = default!;
-
     
     public bool Equals(Entity<TId>? other)
     {

@@ -1,7 +1,8 @@
-﻿
+﻿using MFT.BuildingBlocks.Domain.Primitives;
+
 namespace MFT.BuildingBlocks.Domain.ValueObjects;
 
-public abstract class ValueObject : IEquatable<ValueObject>
+public abstract class ValueObject : IEquatable<ValueObject>, IDomainObject
 {
     protected abstract IEnumerable<object?> GetEqualityComponents();
 
