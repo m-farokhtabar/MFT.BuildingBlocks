@@ -1,9 +1,11 @@
 ﻿using MFT.BuildingBlocks.Domain.Primitives;
-using MFT.BuildingBlocks.Domain.Specifications.Domain;
-
 namespace MFT.BuildingBlocks.Domain.Specifications;
 
-public interface IDomainSpecification<T>: ISpecification<T> where T : IDomainObject
+public interface IDomainSpecification
 {
-    string BrokenRuleMessage { get; }    
+    string BrokenRuleMessage { get; }
+    string DomainName { get; }
+}
+public interface IDomainSpecification<T>: IDomainSpecification, ISpecification<T> where T : IDomainObject
+{
 }
