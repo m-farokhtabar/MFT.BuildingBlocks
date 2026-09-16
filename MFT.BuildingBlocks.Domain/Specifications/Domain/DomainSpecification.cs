@@ -6,5 +6,5 @@ public abstract class DomainSpecification<T> : IDomainSpecification<T> where T :
 {
     public abstract string BrokenRuleMessage { get; }
     public abstract bool IsSatisfiedBy(T candidate);
-    public string DomainName => typeof(T).FullName!;
+    public string DomainObjectName => typeof(T).FullName!;
 }

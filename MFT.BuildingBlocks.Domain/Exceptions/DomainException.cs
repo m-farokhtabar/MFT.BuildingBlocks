@@ -1,22 +1,11 @@
-﻿using System.Runtime.CompilerServices;
+﻿    namespace MFT.BuildingBlocks.Domain.Exceptions;
 
-namespace MFT.BuildingBlocks.Domain.Exceptions;
-
-public abstract class DomainException : Exception
-{
-    protected DomainException(string message, Type callerType, string callerMethod) : base(message)
+    public abstract class DomainException : Exception
     {
-        RaisedFrom = $"{callerType.FullName}.{callerMethod}";
+        protected DomainException(string message) : base(message)
+        {        
+        }
+        protected DomainException(string message, Exception innerException) : base(message, innerException)
+        {        
+        }
     }
-    protected DomainException(Exception innerException,string message, Type callerType, string callerMethodName) : base(message, innerException)
-    {
-        RaisedFrom = $"{callerType.FullName}.{callerMethodName}";
-    }
-
-    public string RaisedFrom { get; init; }
-
-    public override string ToString()
-    {
-        return $"RaisedFrom[{RaisedFrom}]: {Message}";
-    }
-}

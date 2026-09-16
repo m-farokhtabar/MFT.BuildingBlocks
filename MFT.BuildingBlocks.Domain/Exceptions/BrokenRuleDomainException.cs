@@ -1,18 +1,24 @@
-﻿using MFT.BuildingBlocks.Domain.Primitives;
-using MFT.BuildingBlocks.Domain.Specifications;
+﻿using MFT.BuildingBlocks.Domain.Specifications;
 
 namespace MFT.BuildingBlocks.Domain.Exceptions;
 
 public abstract class BrokenRuleDomainException : DomainException
-{        
-    protected BrokenRuleDomainException(string message, IDomainSpecification brokenRule, Type callerType, string callerMethodName) : base(message, callerType, callerMethodName)
+{
+    protected BrokenRuleDomainException(IDomainSpecification brokenRule) : base(GetBrokenRuleMessage(brokenRule))
     {
-        BrokenRule = brokenRule;
+        RuleName = brokenRule.DomainObjectName;
     }
-    public IDomainSpecification BrokenRule { get; init; }
 
-    public override string ToString()
+    protected BrokenRuleDomainException(IDomainSpecification brokenRule, Exception innerException) : base(GetBrokenRuleMessage(brokenRule), innerException)
+    {        
+        RuleName = brokenRule.DomainObjectName;
+    }    
+    public string RuleName { get; }
+
+    private static string GetBrokenRuleMessage(IDomainSpecification brokenRule)
     {
-        return $"RaisedFrom[{RaisedFrom}] | Domain[{BrokenRule.DomainName}] | BrokenRule[{BrokenRule.GetType().FullName}]: {BrokenRule.BrokenRuleMessage}";
+        if (brokenRule is null)
+            throw new ArgumentNullException(nameof(brokenRule),"A broken domain rule must be provided to create this exception.");
+        return brokenRule.BrokenRuleMessage;
     }
 }
