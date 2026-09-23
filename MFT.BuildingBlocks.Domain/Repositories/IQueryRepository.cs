@@ -4,7 +4,7 @@ using MFT.BuildingBlocks.Domain.ValueObjects;
 
 namespace MFT.BuildingBlocks.Domain.Repositories;
 
-public interface ISpecificationRepository<TEntity, TId> where TEntity : AggregateRoot<TId> where TId : EntityId
+public interface IQueryRepository<TEntity, TId> where TEntity : AggregateRoot<TId> where TId : EntityId
 {
     Task<IEnumerable<TEntity>?> GetAsync(IQuerySpecification<TEntity> query, CancellationToken cancellationToken = default);
 }
